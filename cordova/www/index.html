@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, user-scalable=no
+		initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	<!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src	
+	-->
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *">
+	<title>ThermalCite</title>
+	<style>
+	body {
+		font-family: sans-serif;
+	}
+
+	h1 {
+		margin-right:110px;
+	}
+	.hidden {
+		display: none;
+	}
+	input, textarea {
+		width: 100%;
+	}
+	</style>
+</head>
+<body>
+	<h1>ThermalCite</h1>
+	<p id="message">Preparing...</p>
+	<div id="found-devices"></div>
+	<div id="cite-form-container">
+		<form id="cite-form" onsubmit="return false;">
+			<p id="print-button-container" class="hidden"><button id="print-button">Send to Printer</button></p>
+			<p>Location:<input type="text" value="" id="location"></p>
+			<p>License Plate:<input type="text" value="" id="plate"></p>
+			<p>Description:<input type="text" value="" id="description"></p>
+			<p>Reason:<textarea type="text" value="" id="reason" rows="10"></textarea></p>
+		</form>
+	</div>
+	<!--
+	Including cordova.js will automatically include the JavaScript library
+	for the Cordova BLE plugin.
+	-->
+	<script src="cordova.js"></script>
+	<script src="jquery-2.2.2.min.js"></script>
+	<script src="app.js"></script>
+</body>
+
+</html>
