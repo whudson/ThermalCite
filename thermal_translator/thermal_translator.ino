@@ -13,7 +13,7 @@
 	#include <SoftwareSerial.h>
 #elif BOARD == BOARD_DIGISPARK
 	#inculde <SoftSerial.h>
-	#include <TinyPinChange.h>  /* Ne pas oublier d'inclure la librairie <TinyPinChange> qui est utilisee par la librairie <RcSeq> */
+	#include <TinyPinChange.h>  /* Do not forget to include the library <TinyPinChange> that is used by the library <RcSeq> */
 #endif
 
 #include "Adafruit_Thermal.h"
